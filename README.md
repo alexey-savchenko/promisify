@@ -40,12 +40,13 @@ Using this code above `as-is` will be clumsy, requiring you to manually create w
 // for simplicity details are omitted
 
 turnOnNotificationsButtonTap
-    .flatMap { _ in
+    .flatMap { _ -> AnyPublisher<Bool, Never> in
         return Future { promise in
             UserNotificationService.shared().authorizeNotifications { granted in
                 promise(.success(granted))
             }
         }
+        .eraseToAnyPublisher()
     }
     .sink(receiveValue: { value in 
         print("Notifications are allowed - \(value)")
@@ -56,8 +57,8 @@ Instead, with `promisify` you can write code like this:
 
 ```swift
 turnOnNotificationsButtonTap
-    .flatMap { _ in
-        return promisify(UserNotificationService.shared().authorizeNotifications)() // eloquent and simple
+    .flatMap { _ -> AnyPublisher<Bool, Never> in
+        return promisify(UserNotificationService.shared().authorizeNotifications)().eraseToAnyPublisher() // eloquent and simple
     }
     .sink(receiveValue: { value in 
         print("Notifications are allowed - \(value)")
@@ -74,7 +75,7 @@ func iTakeArguments(arg0: String, arg1: String, completion: () -> Void) {
 
 // usage
 
-promisify(iTakeArguments)(("argument0", "argument1"))
+let result: Promise<Void, Never> = promisify(iTakeArguments)(("argument0", "argument1"))
 ```
 
 ## Installation

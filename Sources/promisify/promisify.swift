@@ -1,7 +1,7 @@
 import Combine
 
 public func promisify<Input0, Output0>(
-  _ callbackBasedFunction: @escaping (Input0, (Output0) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, @escaping (Output0) -> Void) -> ()
 ) -> (Input0) -> Future<Output0, Never> {
   return { input in
     return Future { promise in
@@ -13,7 +13,7 @@ public func promisify<Input0, Output0>(
 }
 
 public func promisify<Input0, Input1, Output0>(
-  _ callbackBasedFunction: @escaping (Input0, Input1, (Output0) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, Input1, @escaping (Output0) -> Void) -> ()
 ) -> (Input0, Input1) -> Future<Output0, Never> {
   return { input0, input1 in
     return Future { promise in
@@ -25,7 +25,7 @@ public func promisify<Input0, Input1, Output0>(
 }
 
 public func promisify<Input0, Input1, Input2, Output0>(
-  _ callbackBasedFunction: @escaping (Input0, Input1, Input2, (Output0) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, Input1, Input2, @escaping (Output0) -> Void) -> ()
 ) -> (Input0, Input1, Input2) -> Future<Output0, Never> {
   return { input0, input1, input2 in
     return Future { promise in
@@ -37,7 +37,7 @@ public func promisify<Input0, Input1, Input2, Output0>(
 }
 
 public func promisify<Input0, Input1, Input2, Input3, Input4, Input5, Output0>(
-  _ callbackBasedFunction: @escaping (Input0, Input1, Input2, Input3, Input4, Input5, (Output0) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, Input1, Input2, Input3, Input4, Input5, @escaping (Output0) -> Void) -> ()
 ) -> (Input0, Input1, Input2, Input3, Input4, Input5) -> Future<Output0, Never> {
   return { input0, input1, input2, input3, input4, input5 in
     return Future { promise in
@@ -49,7 +49,7 @@ public func promisify<Input0, Input1, Input2, Input3, Input4, Input5, Output0>(
 }
 
 public func promisify<Input0, Input1, Input2, Input3, Input4, Input5, Input6, Output0>(
-  _ callbackBasedFunction: @escaping (Input0, Input1, Input2, Input3, Input4, Input5, Input6, (Output0) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, Input1, Input2, Input3, Input4, Input5, Input6, @escaping (Output0) -> Void) -> ()
 ) -> (Input0, Input1, Input2, Input3, Input4, Input5, Input6) -> Future<Output0, Never> {
   return { input0, input1, input2, input3, input4, input5, input6 in
     return Future { promise in
@@ -61,7 +61,7 @@ public func promisify<Input0, Input1, Input2, Input3, Input4, Input5, Input6, Ou
 }
 
 public func promisify<Input0, Output0, Output1>(
-  _ callbackBasedFunction: @escaping (Input0, (Output0, Output1) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, @escaping (Output0, Output1) -> Void) -> ()
 ) -> (Input0) -> Future<(Output0, Output1), Never> {
   return { input in
     return Future { promise in
@@ -73,7 +73,7 @@ public func promisify<Input0, Output0, Output1>(
 }
 
 public func promisify<Input0, Output0, Output1, Output2>(
-  _ callbackBasedFunction: @escaping (Input0, (Output0, Output1, Output2) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, @escaping (Output0, Output1, Output2) -> Void) -> ()
 ) -> (Input0) -> Future<(Output0, Output1, Output2), Never> {
   return { input in
     return Future { promise in
@@ -85,7 +85,7 @@ public func promisify<Input0, Output0, Output1, Output2>(
 }
 
 public func promisify<Input0, Output0, Output1, Output2, Output3>(
-  _ callbackBasedFunction: @escaping (Input0, (Output0, Output1, Output2, Output3) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, @escaping (Output0, Output1, Output2, Output3) -> Void) -> ()
 ) -> (Input0) -> Future<(Output0, Output1, Output2, Output3), Never> {
   return { input in
     return Future { promise in
@@ -97,7 +97,7 @@ public func promisify<Input0, Output0, Output1, Output2, Output3>(
 }
 
 public func promisify<Input0, Output0, Output1, Output2, Output3, Output4>(
-  _ callbackBasedFunction: @escaping (Input0, (Output0, Output1, Output2, Output3, Output4) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, @escaping (Output0, Output1, Output2, Output3, Output4) -> Void) -> ()
 ) -> (Input0) -> Future<(Output0, Output1, Output2, Output3, Output4), Never> {
   return { input in
     return Future { promise in
@@ -109,7 +109,7 @@ public func promisify<Input0, Output0, Output1, Output2, Output3, Output4>(
 }
 
 public func promisify<Input0, Output0, Output1, Output2, Output3, Output4, Output5>(
-  _ callbackBasedFunction: @escaping (Input0, (Output0, Output1, Output2, Output3, Output4, Output5) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, @escaping (Output0, Output1, Output2, Output3, Output4, Output5) -> Void) -> ()
 ) -> (Input0) -> Future<(Output0, Output1, Output2, Output3, Output4, Output5), Never> {
   return { input in
     return Future { promise in
@@ -121,7 +121,7 @@ public func promisify<Input0, Output0, Output1, Output2, Output3, Output4, Outpu
 }
 
 public func promisify<Input0, Output0, Output1, Output2, Output3, Output4, Output5, Output6>(
-  _ callbackBasedFunction: @escaping (Input0, (Output0, Output1, Output2, Output3, Output4, Output5, Output6) -> Void) -> ()
+  _ callbackBasedFunction: @escaping (Input0, @escaping (Output0, Output1, Output2, Output3, Output4, Output5, Output6) -> Void) -> ()
 ) -> (Input0) -> Future<(Output0, Output1, Output2, Output3, Output4, Output5, Output6), Never> {
   return { input in
     return Future { promise in
@@ -133,7 +133,7 @@ public func promisify<Input0, Output0, Output1, Output2, Output3, Output4, Outpu
 }
 
 public func promisify<Output>(
-  _ callbackBasedFunction: @escaping ((Output) -> Void) -> Void
+  _ callbackBasedFunction: @escaping (@escaping (Output) -> Void) -> Void
 ) -> () -> Future<Output, Never> {
   return {
     return Future { promise in
